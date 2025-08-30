@@ -65,6 +65,10 @@ def get_lr(it, all):
     coeff = 0.5 * (1.0 + math.cos(math.pi * decay_ratio))  # 余弦系数
     return min_lr + coeff * (args.learning_rate - min_lr)
 
+"""
+训练的入口函数
+"""
+
 def train_epoch(epoch):
     """
     训练一个epoch的函数
