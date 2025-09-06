@@ -1,0 +1,3 @@
+# hostfile
+node1 slots=2
+node2 slots=2

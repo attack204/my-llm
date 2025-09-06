@@ -1,0 +1,94 @@
+[2025-09-06 22:05:33,805] [INFO] [real_accelerator.py:260:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-09-06 22:05:35,276] [INFO] [logging.py:107:log_dist] [Rank -1] [TorchCheckpointEngine] Initialized with serialization = False
+[2025-09-06 22:05:35,623] [INFO] [comm.py:821:init_distributed] cdb=None
+iZ6wegwnuccb2m9s88i11lZ:75433:75433 [0] NCCL INFO cudaDriverVersion 12080
+iZ6wegwnuccb2m9s88i11lZ:75433:75433 [0] NCCL INFO NCCL_SOCKET_IFNAME set by environment to eth0
+iZ6wegwnuccb2m9s88i11lZ:75433:75433 [0] NCCL INFO Bootstrap : Using eth0:172.26.127.41<0>
+iZ6wegwnuccb2m9s88i11lZ:75433:75433 [0] NCCL INFO NET/Plugin : dlerror=libnccl-net.so: cannot open shared object file: No such file or directory No plugin found (libnccl-net.so), using internal implementation
+iZ6wegwnuccb2m9s88i11lZ:75433:75877 [0] NCCL INFO NCCL_SOCKET_IFNAME set by environment to eth0
+iZ6wegwnuccb2m9s88i11lZ:75433:75877 [0] NCCL INFO NET/IB : No device found.
+iZ6wegwnuccb2m9s88i11lZ:75433:75877 [0] NCCL INFO NCCL_SOCKET_IFNAME set by environment to eth0
+iZ6wegwnuccb2m9s88i11lZ:75433:75877 [0] NCCL INFO NET/Socket : Using [0]eth0:172.26.127.41<0>
+iZ6wegwnuccb2m9s88i11lZ:75433:75877 [0] NCCL INFO Using non-device net plugin version 0
+iZ6wegwnuccb2m9s88i11lZ:75433:75877 [0] NCCL INFO Using network Socket
+iZ6wegwnuccb2m9s88i11lZ:75433:75877 [0] NCCL INFO comm 0x919cb80 rank 2 nranks 4 cudaDev 0 nvmlDev 0 busId 70 commId 0xdaa3776a5ca07073 - Init START
+iZ6wegwnuccb2m9s88i11lZ:75433:75877 [0] NCCL INFO NCCL_P2P_LEVEL set by environment to LOC
+iZ6wegwnuccb2m9s88i11lZ:75433:75877 [0] NCCL INFO comm 0x919cb80 rank 2 nRanks 4 nNodes 2 localRanks 2 localRank 0 MNNVL 0
+iZ6wegwnuccb2m9s88i11lZ:75433:75877 [0] NCCL INFO Trees [0] 3/-1/-1->2->0 [1] 3/0/-1->2->-1
+iZ6wegwnuccb2m9s88i11lZ:75433:75877 [0] NCCL INFO P2P Chunksize set to 131072
+iZ6wegwnuccb2m9s88i11lZ:75433:75877 [0] NCCL INFO Channel 00/0 : 1[1] -> 2[0] [receive] via NET/Socket/0
+iZ6wegwnuccb2m9s88i11lZ:75433:75877 [0] NCCL INFO Channel 01/0 : 1[1] -> 2[0] [receive] via NET/Socket/0
+iZ6wegwnuccb2m9s88i11lZ:75433:75877 [0] NCCL INFO Channel 00 : 2[0] -> 3[1] via SHM/direct/direct
+iZ6wegwnuccb2m9s88i11lZ:75433:75877 [0] NCCL INFO Channel 01 : 2[0] -> 3[1] via SHM/direct/direct
+iZ6wegwnuccb2m9s88i11lZ:75433:75877 [0] NCCL INFO Connected all rings
+iZ6wegwnuccb2m9s88i11lZ:75433:75877 [0] NCCL INFO Channel 00/0 : 0[0] -> 2[0] [receive] via NET/Socket/0
+iZ6wegwnuccb2m9s88i11lZ:75433:75877 [0] NCCL INFO Channel 01/0 : 0[0] -> 2[0] [receive] via NET/Socket/0
+iZ6wegwnuccb2m9s88i11lZ:75433:75877 [0] NCCL INFO Channel 00/0 : 2[0] -> 0[0] [send] via NET/Socket/0
+iZ6wegwnuccb2m9s88i11lZ:75433:75877 [0] NCCL INFO Channel 01/0 : 2[0] -> 0[0] [send] via NET/Socket/0
+iZ6wegwnuccb2m9s88i11lZ:75433:75877 [0] NCCL INFO Connected all trees
+iZ6wegwnuccb2m9s88i11lZ:75433:75877 [0] NCCL INFO threadThresholds 8/8/64 | 32/8/64 | 512 | 512
+iZ6wegwnuccb2m9s88i11lZ:75433:75877 [0] NCCL INFO 2 coll channels, 0 collnet channels, 0 nvls channels, 2 p2p channels, 2 p2p channels per peer
+iZ6wegwnuccb2m9s88i11lZ:75433:75877 [0] NCCL INFO comm 0x919cb80 rank 2 nranks 4 cudaDev 0 nvmlDev 0 busId 70 commId 0xdaa3776a5ca07073 - Init COMPLETE
+[2025-09-06 22:05:40,566] [INFO] [config.py:684:__init__] Config mesh_device None world_size = 4
+iZ6wegwnuccb2m9s88i11lZ:75433:76083 [0] NCCL INFO Using non-device net plugin version 0
+iZ6wegwnuccb2m9s88i11lZ:75433:76083 [0] NCCL INFO Using network Socket
+iZ6wegwnuccb2m9s88i11lZ:75433:76083 [0] NCCL INFO bootstrapSplit: comm 0x22800350 parent 0x919cb80 rank 2 nranks 4 color 116666945 key 2 prev 1 next 3 - DONE
+iZ6wegwnuccb2m9s88i11lZ:75433:76083 [0] NCCL INFO comm 0x22800350 rank 2 nranks 4 cudaDev 0 nvmlDev 0 busId 70 commId 0xbb5232db48ae37e2 - Init START
+iZ6wegwnuccb2m9s88i11lZ:75433:76083 [0] NCCL INFO comm 0x22800350 rank 2 nRanks 4 nNodes 2 localRanks 2 localRank 0 MNNVL 0
+iZ6wegwnuccb2m9s88i11lZ:75433:76083 [0] NCCL INFO Trees [0] 3/-1/-1->2->0 [1] 3/0/-1->2->-1
+iZ6wegwnuccb2m9s88i11lZ:75433:76083 [0] NCCL INFO P2P Chunksize set to 131072
+iZ6wegwnuccb2m9s88i11lZ:75433:76083 [0] NCCL INFO Channel 00/0 : 1[1] -> 2[0] [receive] via NET/Socket/0
+iZ6wegwnuccb2m9s88i11lZ:75433:76083 [0] NCCL INFO Channel 01/0 : 1[1] -> 2[0] [receive] via NET/Socket/0
+iZ6wegwnuccb2m9s88i11lZ:75433:76083 [0] NCCL INFO Channel 00 : 2[0] -> 3[1] via SHM/direct/direct
+iZ6wegwnuccb2m9s88i11lZ:75433:76083 [0] NCCL INFO Channel 01 : 2[0] -> 3[1] via SHM/direct/direct
+iZ6wegwnuccb2m9s88i11lZ:75433:76083 [0] NCCL INFO Connected all rings
+iZ6wegwnuccb2m9s88i11lZ:75433:76083 [0] NCCL INFO Channel 00/0 : 0[0] -> 2[0] [receive] via NET/Socket/0
+iZ6wegwnuccb2m9s88i11lZ:75433:76083 [0] NCCL INFO Channel 01/0 : 0[0] -> 2[0] [receive] via NET/Socket/0
+iZ6wegwnuccb2m9s88i11lZ:75433:76083 [0] NCCL INFO Channel 00/0 : 2[0] -> 0[0] [send] via NET/Socket/0
+iZ6wegwnuccb2m9s88i11lZ:75433:76083 [0] NCCL INFO Channel 01/0 : 2[0] -> 0[0] [send] via NET/Socket/0
+iZ6wegwnuccb2m9s88i11lZ:75433:76083 [0] NCCL INFO Connected all trees
+iZ6wegwnuccb2m9s88i11lZ:75433:76083 [0] NCCL INFO threadThresholds 8/8/64 | 32/8/64 | 512 | 512
+iZ6wegwnuccb2m9s88i11lZ:75433:76083 [0] NCCL INFO 2 coll channels, 0 collnet channels, 0 nvls channels, 2 p2p channels, 2 p2p channels per peer
+iZ6wegwnuccb2m9s88i11lZ:75433:76083 [0] NCCL INFO comm 0x22800350 rank 2 nranks 4 cudaDev 0 nvmlDev 0 busId 70 commId 0xbb5232db48ae37e2 - Init COMPLETE
+Using /root/.cache/torch_extensions/py310_cu121 as PyTorch extensions root...
+Detected CUDA files, patching ldflags
+Emitting ninja build file /root/.cache/torch_extensions/py310_cu121/fused_adam/build.ninja...
+Building extension module fused_adam...
+Allowing ninja to set a default number of workers... (overridable by setting the environment variable MAX_JOBS=N)
+ninja: no work to do.
+Loading extension module fused_adam...
+Time to load fused_adam op: 0.014116764068603516 seconds
+[2025-09-06 22:05:41,209] [WARNING] [lr_schedules.py:858:get_lr] Attempting to get learning rate from scheduler before it has started
+[rank2]:[E906 22:20:35.519599667 ProcessGroupNCCL.cpp:607] [Rank 2] Watchdog caught collective operation timeout: WorkNCCL(SeqNum=765, OpType=ALLREDUCE, NumelIn=241603584, NumelOut=241603584, Timeout(ms)=600000) ran for 600003 milliseconds before timing out.
+[rank2]:[E906 22:20:35.519684785 ProcessGroupNCCL.cpp:1664] [PG 1 Rank 2] Exception (either an error or timeout) detected by watchdog at work: 765, last enqueued NCCL work: 765, last completed NCCL work: 764.
+[rank2]:[E906 22:20:35.519697594 ProcessGroupNCCL.cpp:1709] [PG 1 Rank 2] Timeout at NCCL work: 765, last enqueued NCCL work: 765, last completed NCCL work: 764.
+[rank2]:[E906 22:20:35.519707945 ProcessGroupNCCL.cpp:621] [Rank 2] Some NCCL operations have failed or timed out. Due to the asynchronous nature of CUDA kernels, subsequent GPU operations might run on corrupted/incomplete data.
+[rank2]:[E906 22:20:35.519711373 ProcessGroupNCCL.cpp:627] [Rank 2] To avoid data inconsistency, we are taking the entire process down.
+[rank2]:[E906 22:20:35.520872097 ProcessGroupNCCL.cpp:1515] [PG 1 Rank 2] Process group watchdog thread terminated with exception: [Rank 2] Watchdog caught collective operation timeout: WorkNCCL(SeqNum=765, OpType=ALLREDUCE, NumelIn=241603584, NumelOut=241603584, Timeout(ms)=600000) ran for 600003 milliseconds before timing out.
+Exception raised from checkTimeout at ../torch/csrc/distributed/c10d/ProcessGroupNCCL.cpp:609 (most recent call first):
+frame #0: c10::Error::Error(c10::SourceLocation, std::string) + 0x96 (0x7f99c5577f86 in /usr/local/lib/python3.10/site-packages/torch/lib/libc10.so)
+frame #1: c10d::ProcessGroupNCCL::WorkNCCL::checkTimeout(std::optional<std::chrono::duration<long, std::ratio<1l, 1000l> > >) + 0x1d2 (0x7f99777c88d2 in /usr/local/lib/python3.10/site-packages/torch/lib/libtorch_cuda.so)
+frame #2: c10d::ProcessGroupNCCL::watchdogHandler() + 0x233 (0x7f99777cf313 in /usr/local/lib/python3.10/site-packages/torch/lib/libtorch_cuda.so)
+frame #3: c10d::ProcessGroupNCCL::ncclCommWatchdog() + 0x10c (0x7f99777d16fc in /usr/local/lib/python3.10/site-packages/torch/lib/libtorch_cuda.so)
+frame #4: <unknown function> + 0xd8b74 (0x7f99c58e8b74 in /lib64/libstdc++.so.6)
+frame #5: <unknown function> + 0x93fb (0x7f99d3dfe3fb in /lib64/libpthread.so.0)
+frame #6: clone + 0x43 (0x7f99d3b04e83 in /lib64/libc.so.6)
+
+terminate called after throwing an instance of 'c10::DistBackendError'
+  what():  [PG 1 Rank 2] Process group watchdog thread terminated with exception: [Rank 2] Watchdog caught collective operation timeout: WorkNCCL(SeqNum=765, OpType=ALLREDUCE, NumelIn=241603584, NumelOut=241603584, Timeout(ms)=600000) ran for 600003 milliseconds before timing out.
+Exception raised from checkTimeout at ../torch/csrc/distributed/c10d/ProcessGroupNCCL.cpp:609 (most recent call first):
+frame #0: c10::Error::Error(c10::SourceLocation, std::string) + 0x96 (0x7f99c5577f86 in /usr/local/lib/python3.10/site-packages/torch/lib/libc10.so)
+frame #1: c10d::ProcessGroupNCCL::WorkNCCL::checkTimeout(std::optional<std::chrono::duration<long, std::ratio<1l, 1000l> > >) + 0x1d2 (0x7f99777c88d2 in /usr/local/lib/python3.10/site-packages/torch/lib/libtorch_cuda.so)
+frame #2: c10d::ProcessGroupNCCL::watchdogHandler() + 0x233 (0x7f99777cf313 in /usr/local/lib/python3.10/site-packages/torch/lib/libtorch_cuda.so)
+frame #3: c10d::ProcessGroupNCCL::ncclCommWatchdog() + 0x10c (0x7f99777d16fc in /usr/local/lib/python3.10/site-packages/torch/lib/libtorch_cuda.so)
+frame #4: <unknown function> + 0xd8b74 (0x7f99c58e8b74 in /lib64/libstdc++.so.6)
+frame #5: <unknown function> + 0x93fb (0x7f99d3dfe3fb in /lib64/libpthread.so.0)
+frame #6: clone + 0x43 (0x7f99d3b04e83 in /lib64/libc.so.6)
+
+Exception raised from ncclCommWatchdog at ../torch/csrc/distributed/c10d/ProcessGroupNCCL.cpp:1521 (most recent call first):
+frame #0: c10::Error::Error(c10::SourceLocation, std::string) + 0x96 (0x7f99c5577f86 in /usr/local/lib/python3.10/site-packages/torch/lib/libc10.so)
+frame #1: <unknown function> + 0xe5aa84 (0x7f997745aa84 in /usr/local/lib/python3.10/site-packages/torch/lib/libtorch_cuda.so)
+frame #2: <unknown function> + 0xd8b74 (0x7f99c58e8b74 in /lib64/libstdc++.so.6)
+frame #3: <unknown function> + 0x93fb (0x7f99d3dfe3fb in /lib64/libpthread.so.0)
+frame #4: clone + 0x43 (0x7f99d3b04e83 in /lib64/libc.so.6)
+

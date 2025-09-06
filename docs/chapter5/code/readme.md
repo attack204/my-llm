@@ -38,7 +38,7 @@ Transformer(PreTrainedModel)
 - YUM
 
 ```bash
-yum install tmux
+yum install tmux -y
 ```
 
 ```bash
@@ -117,11 +117,18 @@ python3 -m pip install -r requirements.txt
 | **Final LayerNorm**        | 2d                  | 2 × 1 024 = 2 048         |
 
 
-10w token测试
+1w token测试
+
+
+- 单机A10
 
 batch32 10w => 40min
 batch64 cuda out of memory
-python3 ddp_pretrain.py --batch_size 32
+
+```bash
+head -n 100000 /root/mobvoi_seq_monkey_general_open_corpus.jsonl > /root/data.jsonl
+python3 ddp_pretrain.py --batch_size 32 --data_path /root/data.jsonl
+```
 
 LLM总参数量：215.127 百万
 Epoch:[1/1](0/3125) loss:8.901 lr:0.0002000 epoch_Time:63.0min;
@@ -156,3 +163,73 @@ Epoch:[1/1](2800/3125) loss:3.883 lr:0.0000248 epoch_Time:4.0min;
 Epoch:[1/1](2900/3125) loss:4.063 lr:0.0000223 epoch_Time:3.0min;
 Epoch:[1/1](3000/3125) loss:4.087 lr:0.0000207 epoch_Time:1.0min;
 Epoch:[1/1](3100/3125) loss:3.819 lr:0.0000200 epoch_Time:0.0min;
+
+
+
+- 单机2*A10
+
+```bash
+head -n 10000 /root/mobvoi_seq_monkey_general_open_corpus.jsonl > data.jsonl
+python3 ddp_pretrain.py --batch_size 32 --data_path /root/data.jsonl
+```
+
+LLM总参数量：215.127 百万
+Epoch:[1/1](0/3125) loss:8.355 lr:0.0002000 epoch_Time:59.0min;
+Epoch:[1/1](100/3125) loss:6.405 lr:0.0001995 epoch_Time:26.0min;
+Epoch:[1/1](200/3125) loss:6.444 lr:0.0001982 epoch_Time:25.0min;
+Epoch:[1/1](300/3125) loss:6.721 lr:0.0001959 epoch_Time:24.0min;
+Epoch:[1/1](400/3125) loss:6.278 lr:0.0001928 epoch_Time:23.0min;
+Epoch:[1/1](500/3125) loss:6.086 lr:0.0001889 epoch_Time:22.0min;
+Epoch:[1/1](600/3125) loss:5.298 lr:0.0001841 epoch_Time:22.0min;
+Epoch:[1/1](700/3125) loss:5.624 lr:0.0001786 epoch_Time:20.0min;
+Epoch:[1/1](800/3125) loss:5.171 lr:0.0001724 epoch_Time:20.0min;
+Epoch:[1/1](900/3125) loss:5.196 lr:0.0001656 epoch_Time:20.0min;
+Epoch:[1/1](1000/3125) loss:4.972 lr:0.0001582 epoch_Time:19.0min;
+Epoch:[1/1](1100/3125) loss:4.781 lr:0.0001504 epoch_Time:18.0min;
+Epoch:[1/1](1200/3125) loss:4.829 lr:0.0001421 epoch_Time:17.0min;
+Epoch:[1/1](1300/3125) loss:4.558 lr:0.0001335 epoch_Time:16.0min;
+Epoch:[1/1](1400/3125) loss:4.580 lr:0.0001246 epoch_Time:15.0min;
+Epoch:[1/1](1500/3125) loss:3.985 lr:0.0001157 epoch_Time:14.0min;
+Epoch:[1/1](1600/3125) loss:3.440 lr:0.0001066 epoch_Time:14.0min;
+Epoch:[1/1](1700/3125) loss:4.720 lr:0.0000976 epoch_Time:13.0min;
+Epoch:[1/1](1800/3125) loss:3.949 lr:0.0000887 epoch_Time:12.0min;
+Epoch:[1/1](1900/3125) loss:3.727 lr:0.0000800 epoch_Time:11.0min;
+Epoch:[1/1](2000/3125) loss:4.267 lr:0.0000717 epoch_Time:10.0min;
+Epoch:[1/1](2100/3125) loss:4.250 lr:0.0000637 epoch_Time:9.0min;
+Epoch:[1/1](2200/3125) loss:3.996 lr:0.0000562 epoch_Time:8.0min;
+Epoch:[1/1](2300/3125) loss:3.824 lr:0.0000492 epoch_Time:7.0min;
+Epoch:[1/1](2400/3125) loss:3.878 lr:0.0000429 epoch_Time:7.0min;
+Epoch:[1/1](2500/3125) loss:3.817 lr:0.0000372 epoch_Time:6.0min;
+Epoch:[1/1](2600/3125) loss:3.836 lr:0.0000322 epoch_Time:5.0min;
+Epoch:[1/1](2700/3125) loss:3.911 lr:0.0000281 epoch_Time:4.0min;
+Epoch:[1/1](2800/3125) loss:3.798 lr:0.0000248 epoch_Time:3.0min;
+Epoch:[1/1](2900/3125) loss:4.099 lr:0.0000223 epoch_Time:2.0min;
+Epoch:[1/1](3000/3125) loss:4.143 lr:0.0000207 epoch_Time:1.0min;
+Epoch:[1/1](3100/3125) loss:4.077 lr:0.0000200 epoch_Time:0.0min;
+
+
+- 2 * 2 * A10
+
+```bash
+pip install deepspeed>=0.14.0 torch torchvision transformers pandas swanlab
+#安装 openmpi（CentOS/Rocky）
+yum install -y openmpi openmpi-devel
+
+#需要两台机器能ping通
+ssh-keygen -t rsa -P ""
+ssh-copy-id USER@NODE2_IP
+
+```
+
+```bash
+
+deepspeed --hostfile hostfile \
+          --master_addr node1 \
+          --master_port 29500 \
+          train.py \
+          --deepspeed ds_config.json \
+          --data_path /root/data.jsonl \
+          --epochs 1 \
+          --use_swanlab
+
+```
