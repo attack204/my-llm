@@ -2,7 +2,7 @@
 
 please run with project with `python3 run.py`
 
-the feature list are as follow: 
+the feature list are as follow:
 
 请选择要执行的操作:
 1) 按照模板创建
